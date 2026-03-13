@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balaji Bathini | Software Developer & Full-Stack Engineer</title>
+  <meta name="description"
+    content="Balaji Bathini - Software Developer specializing in Python, Odoo, and full-stack development. Building intelligent software and engineering the future.">
+  <meta name="keywords"
+    content="Balaji Bathini, Software Developer, Python Developer, Odoo Developer, Full Stack Engineer, Portfolio">
+  <meta property="og:title" content="Balaji Bathini | Software Developer & Full-Stack Engineer">
+  <meta property="og:description"
+    content="Building intelligent software and engineering the future. Python, Odoo, and full-stack development specialist.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://balajibathini.dev">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-content">
+      <div class="arc-reactor-loading">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+        <div class="core"></div>
+      </div>
+      <div class="loading-text">
+        <h2 class="font-display">INITIALIZING</h2>
+        <div class="progress-bar-container">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <p id="progressText" class="font-body">Loading systems... 0%</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Particle Background Canvas -->
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navigation" class="navigation">
+    <div class="nav-container">
+      <a href="#" class="nav-logo font-display">{"Balaji Bathini"}
+      </a>
+
+      <div class="nav-menu">
+        <button class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul id="navLinks" class="nav-links">
+          <li><a href="#about" class="nav-link" onclick="scrollToSection('#about')">About</a></li>
+          <li><a href="#skills" class="nav-link" onclick="scrollToSection('#skills')">Skills</a></li>
+          <li><a href="#experience" class="nav-link" onclick="scrollToSection('#experience')">Experience</a></li>
+          <li><a href="#projects" class="nav-link" onclick="scrollToSection('#projects')">Projects</a></li>
+          <li><a href="#education" class="nav-link" onclick="scrollToSection('#education')">Education</a></li>
+          <li><a href="#contact" class="nav-link" onclick="scrollToSection('#contact')">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section tech-grid">
+    <!-- Arc Reactor Decoration -->
+    <div class="arc-reactor-bg">
+      <div class="arc-ring arc-ring-1"></div>
+      <div class="arc-ring arc-ring-2"></div>
+      <div class="arc-ring arc-ring-3"></div>
+    </div>
+
+    <!-- HUD Corner Elements -->
+    <div class="hud-corner hud-top-left"></div>
+    <div class="hud-corner hud-top-right"></div>
+    <div class="hud-corner hud-bottom-left"></div>
+    <div class="hud-corner hud-bottom-right"></div>
+
+    <!-- Content -->
+    <div class="hero-container">
+      <div class="hero-content">
+        <!-- Status Indicator -->
+        <div class="status-indicator glass-panel font-body animate-fade-in">
+          <span class="status-dot"></span>
+          <span>System Online</span>
+          <span class="status-primary">• Available for Work</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="hero-headline font-display animate-slide-up">
+          <span>Building </span>
+          <span class="text-gradient">Intelligent Software.</span>
+          <br>
+          <span>Engineering </span>
+          <span class="glow-text-red">the Future.</span>
+        </h1>
+
+        <!-- Name -->
+        <div class="hero-name animate-slide-up" style="animation-delay: 0.4s;">
+          <p class="font-body">Hello, I'm</p>
+          <h2 class="font-display glow-text">BALAJI BATHINI</h2>
+        </div>
+
+        <!-- Role Animation -->
+        <div class="hero-role font-body animate-slide-up" style="animation-delay: 0.6s;">
+          <p><span id="roleText" class="text-primary"></span><span class="text-primary animate-pulse">|</span></p>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons animate-slide-up" style="animation-delay: 0.8s;">
+          <button class="btn btn-hero" onclick="scrollToSection('#projects')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 4l-4-4-4 4"></path>
+            </svg>
+            View Projects
+          </button>
+          <a href="/assets/resume/Balaji_Bathini.pdf" download class="btn btn-hero-outline">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Resume
+          </a>
+          <button class="btn btn-glass" onclick="scrollToSection('#contact')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            Contact Me
+          </button>
+        </div>
+      </div>
+
+      <!-- Avatar Section -->
+      <div class="hero-avatar animate-slide-up" style="animation-delay: 0.3s;">
+        <div class="avatar-container">
+          <div class="avatar-glow"></div>
+          <div class="avatar-rings">
+            <div class="avatar-ring ring-1"></div>
+            <div class="avatar-ring ring-2"></div>
+          </div>
+          <div class="avatar-image">
+            <img src="assets/images/avatar-bitmoji.png" alt="Balaji Bathini Avatar" class="avatar-img">
+          </div>
+          <div class="avatar-corners">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+          </div>
+          <div class="avatar-dots">
+            <div class="dot top"></div>
+            <div class="dot bottom"></div>
+            <div class="dot left"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <span class="font-body">Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <polyline points="19 12 12 19 5 12"></polyline>
+      </svg>
+    </div>
+  </section>
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="section-container">
+      <div class="section-title">
+        <div class="title-header">
+          <div class="title-line"></div>
+          <span class="title-label font-body">About</span>
+          <div class="title-line"></div>
+        </div>
+        <h2 class="title-main font-display">Who I Am</h2>
+      </div>
+
+      <div class="about-card glass-card hud-border">
+        <!-- Profile Status -->
+        <div class="about-status">
+          <div class="status-dot"></div>
+          <span class="font-body">Profile Active</span>
+        </div>
+
+        <div class="about-content">
+          <!-- Avatar -->
+          <div class="about-avatar">
+            <div class="avatar-orbit">
+              <div class="orbit-ring"></div>
+              <div class="orbit-dot top"></div>
+              <div class="orbit-dot bottom"></div>
+            </div>
+            <div class="avatar-img-container">
+              <img src="assets/images/avatar-bitmoji.png" alt="Balaji Bathini Profile" class="avatar-img">
+            </div>
+          </div>
+
+          <!-- About Text -->
+          <div class="about-text">
+            <p class="about-paragraph font-body">
+              I am a <span class="text-primary font-semibold">Software Developer</span> with hands-on experience in
+              <span class="text-primary">Python</span>, <span class="text-primary">Odoo</span>, and
+              <span class="text-primary">full-stack development</span>.
+            </p>
+            <p class="about-paragraph font-body">
+              I specialize in building scalable applications, REST APIs, and cloud-based systems.
+              My focus lies in creating clean, maintainable code while optimizing performance and
+              automating complex workflows.
+            </p>
+            <p class="about-paragraph font-body">
+              With a strong foundation in MVC architecture and modular design, I transform complex
+              business requirements into elegant technical solutions that drive efficiency and innovation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <p class="highlight-label font-body">Clean Code</p>
+            <p class="highlight-value font-body">Best Practices</p>
+          </div>
+          <div class="highlight-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="15" x2="23" y2="15"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="15" x2="4" y2="15"></line>
+            </svg>
+            <p class="highlight-label font-body">Automation</p>
+            <p class="highlight-value font-body">Workflow Optimization</p>
+          </div>
+          <div class="highlight-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+            <p class="highlight-label font-body">Cloud Systems</p>
+            <p class="highlight-value font-body">Scalable Architecture</p>
+          </div>
+          <div class="highlight-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="13" y1="2" x2="13" y2="6"></line>
+              <line x1="13" y1="18" x2="13" y2="22"></line>
+              <line x1="6" y1="9" x2="2" y2="9"></line>
+              <line x1="22" y1="9" x2="18" y2="9"></line>
+              <circle cx="12" cy="9" r="6"></circle>
+            </svg>
+            <p class="highlight-label font-body">Performance</p>
+            <p class="highlight-value font-body">High Efficiency</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <!-- Section Title -->
+    <div class="section-title">
+      <div class="title-header">
+        <div class="title-line"></div>
+        <span class="title-label font-body">Skills</span>
+        <div class="title-line"></div>
+      </div>
+      <h2 class="title-main font-display">Tech Arsenal</h2>
+    </div>
+
+    <!-- Skills Categories -->
+    <div class="skills-grid">
+      <!-- Languages -->
+      <div class="glass-card hud-border">
+        <div class="card-header">
+          <div class="header-dot"></div>
+          <h3 class="font-display">Languages</h3>
+          <div class="header-line"></div>
+        </div>
+        <div class="skills-meters">
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 95;" />
+                <defs>
+                  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#3366ff;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span class="skill-percentage font-display">95%</span>
+            </div>
+            <span class="skill-name font-body">Python</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 85;" />
+              </svg>
+              <span class="skill-percentage font-display">85%</span>
+            </div>
+            <span class="skill-name font-body">JavaScript</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 80;" />
+              </svg>
+              <span class="skill-percentage font-display">80%</span>
+            </div>
+            <span class="skill-name font-body">Java</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 90;" />
+              </svg>
+              <span class="skill-percentage font-display">90%</span>
+            </div>
+            <span class="skill-name font-body">SQL</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 75;" />
+              </svg>
+              <span class="skill-percentage font-display">75%</span>
+            </div>
+            <span class="skill-name font-body">C</span>
+          </div>
+        </div>
+        <div class="card-footer">Module 1/4</div>
+      </div>
+
+      <!-- Frameworks -->
+      <div class="glass-card hud-border">
+        <div class="card-header">
+          <div class="header-dot"></div>
+          <h3 class="font-display">Frameworks</h3>
+          <div class="header-line"></div>
+        </div>
+        <div class="skills-meters">
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 95;" />
+              </svg>
+              <span class="skill-percentage font-display">95%</span>
+            </div>
+            <span class="skill-name font-body">Odoo</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 85;" />
+              </svg>
+              <span class="skill-percentage font-display">85%</span>
+            </div>
+            <span class="skill-name font-body">Django</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 80;" />
+              </svg>
+              <span class="skill-percentage font-display">80%</span>
+            </div>
+            <span class="skill-name font-body">React</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 70;" />
+              </svg>
+              <span class="skill-percentage font-display">70%</span>
+            </div>
+            <span class="skill-name font-body">Angular</span>
+          </div>
+        </div>
+        <div class="card-footer">Module 2/4</div>
+      </div>
+
+      <!-- Tools & Databases -->
+      <div class="glass-card hud-border">
+        <div class="card-header">
+          <div class="header-dot"></div>
+          <h3 class="font-display">Tools & Databases</h3>
+          <div class="header-line"></div>
+        </div>
+        <div class="skills-meters">
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 90;" />
+              </svg>
+              <span class="skill-percentage font-display">90%</span>
+            </div>
+            <span class="skill-name font-body">PostgreSQL</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 88;" />
+              </svg>
+              <span class="skill-percentage font-display">88%</span>
+            </div>
+            <span class="skill-name font-body">Git</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 92;" />
+              </svg>
+              <span class="skill-percentage font-display">92%</span>
+            </div>
+            <span class="skill-name font-body">REST APIs</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 75;" />
+              </svg>
+              <span class="skill-percentage font-display">75%</span>
+            </div>
+            <span class="skill-name font-body">Docker</span>
+          </div>
+        </div>
+        <div class="card-footer">Module 3/4</div>
+      </div>
+
+      <!-- Concepts -->
+      <div class="glass-card hud-border">
+        <div class="card-header">
+          <div class="header-dot"></div>
+          <h3 class="font-display">Concepts</h3>
+          <div class="header-line"></div>
+        </div>
+        <div class="skills-meters">
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 95;" />
+              </svg>
+              <span class="skill-percentage font-display">95%</span>
+            </div>
+            <span class="skill-name font-body">MVC</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 90;" />
+              </svg>
+              <span class="skill-percentage font-display">90%</span>
+            </div>
+            <span class="skill-name font-body">Modular Design</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 88;" />
+              </svg>
+              <span class="skill-percentage font-display">88%</span>
+            </div>
+            <span class="skill-name font-body">Automation</span>
+          </div>
+          <div class="skill-meter">
+            <div class="skill-ring">
+              <svg viewBox="0 0 100 100" class="progress-ring">
+                <circle cx="50" cy="50" r="45" class="progress-background" />
+                <circle cx="50" cy="50" r="45" class="progress-circle" style="--percentage: 82;" />
+              </svg>
+              <span class="skill-percentage font-display">82%</span>
+            </div>
+            <span class="skill-name font-body">Cloud Systems</span>
+          </div>
+        </div>
+        <div class="card-footer">Module 4/4</div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience-section">
+    <div class="section-container">
+      <div class="section-title">
+        <div class="title-header">
+          <div class="title-line"></div>
+          <span class="title-label font-body">Experience</span>
+          <div class="title-line"></div>
+        </div>
+        <h2 class="title-main font-display">Career Timeline</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 4l-4-4-4 4"></path>
+            </svg>
+          </div>
+
+          <div class="timeline-card glass-card hud-border">
+            <div class="timeline-header">
+              <div class="timeline-title">
+                <h3 class="font-display text-primary">Python Odoo Developer</h3>
+                <p class="font-body text-foreground">ASD Support System Pvt. Ltd.</p>
+              </div>
+              <div class="timeline-meta">
+                <div class="meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M12 1v6"></path>
+                    <path d="M4.22 4.22l4.24 4.24"></path>
+                    <path d="M1 12h6"></path>
+                    <path d="M4.22 19.78l4.24-4.24"></path>
+                    <path d="M12 17v6"></path>
+                    <path d="M19.78 19.78l-4.24-4.24"></path>
+                    <path d="M23 12h-6"></path>
+                    <path d="M19.78 4.22l-4.24 4.24"></path>
+                  </svg>
+                  <span class="font-body text-primary">2023 - Present</span>
+                </div>
+                <div class="meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span class="font-body text-muted-foreground">India</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-highlights">
+              <div class="highlight">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" fill="none"></polyline>
+                </svg>
+                <p class="font-body text-muted-foreground">Designed and implemented 20+ modular Odoo components for
+                  enterprise solutions</p>
+              </div>
+              <div class="highlight">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" fill="none"></polyline>
+                </svg>
+                <p class="font-body text-muted-foreground">Automated workflows resulting in 30% efficiency improvement
+                </p>
+              </div>
+              <div class="highlight">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" fill="none"></polyline>
+                </svg>
+                <p class="font-body text-muted-foreground">Led NPD & PPAP process optimization initiatives</p>
+              </div>
+              <div class="highlight">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" fill="none"></polyline>
+                </svg>
+                <p class="font-body text-muted-foreground">Cross-functional collaboration with QA & Manufacturing teams
+                </p>
+              </div>
+              <div class="highlight">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" fill="none"></polyline>
+                </svg>
+                <p class="font-body text-muted-foreground">Developed custom REST APIs for seamless system integration
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-tags">
+              <span class="tag font-body">Python</span>
+              <span class="tag font-body">Odoo</span>
+              <span class="tag font-body">PostgreSQL</span>
+              <span class="tag font-body">REST API</span>
+              <span class="tag font-body">Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="section-container">
+      <div class="section-title">
+        <div class="title-header">
+          <div class="title-line"></div>
+          <span class="title-label font-body">Projects</span>
+          <div class="title-line"></div>
+        </div>
+        <h2 class="title-main font-display">Featured Work</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- AI Resume Analyzer -->
+        <div class="project-card glass-card hud-border project-primary">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"></circle>
+                <path d="M12 1v6"></path>
+                <path d="M4.22 4.22l4.24 4.24"></path>
+                <path d="M1 12h6"></path>
+                <path d="M4.22 19.78l4.24-4.24"></path>
+                <path d="M12 17v6"></path>
+                <path d="M19.78 19.78l-4.24-4.24"></path>
+                <path d="M23 12h-6"></path>
+                <path d="M19.78 4.22l-4.24 4.24"></path>
+              </svg>
+            </div>
+            <div class="project-links">
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6 0-1.2-.5-2.3-1.3-3.2.1-.3.5-1.1-.1-2.3 0 0-1-.3-3 1.2-1-.4-2.1-.5-3.2-.5-1.1 0-2.2.1-3.2.5-2-1.5-3-1.2-3-1.2-.6 1.2-.2 2-.1 2.3-.8.9-1.3 2-1.3 3.2 0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21">
+                  </path>
+                </svg>
+              </button>
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="project-title font-display">AI-Powered Resume Analyzer</h3>
+          <p class="project-description font-body">Machine learning application that analyzes resumes using NLP,
+            provides ATS compatibility scores, and suggests improvements for better job matching.</p>
+          <div class="project-features">
+            <div class="feature">NLP Text Analysis</div>
+            <div class="feature">ATS Score Prediction</div>
+            <div class="feature">Smart Recommendations</div>
+            <div class="feature">Keyword Optimization</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag font-body">Python</span>
+            <span class="project-tag font-body">TensorFlow</span>
+            <span class="project-tag font-body">Flask</span>
+            <span class="project-tag font-body">React</span>
+          </div>
+        </div>
+
+        <!-- E-Commerce Platform -->
+        <div class="project-card glass-card hud-border project-accent">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+            <div class="project-links">
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6 0-1.2-.5-2.3-1.3-3.2.1-.3.5-1.1-.1-2.3 0 0-1-.3-3 1.2-1-.4-2.1-.5-3.2-.5-1.1 0-2.2.1-3.2.5-2-1.5-3-1.2-3-1.2-.6 1.2-.2 2-.1 2.3-.8.9-1.3 2-1.3 3.2 0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21">
+                  </path>
+                </svg>
+              </button>
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="project-title font-display">E-Commerce Microservices Platform</h3>
+          <p class="project-description font-body">Scalable microservices architecture for e-commerce with payment
+            integration, inventory management, and real-time order tracking.</p>
+          <div class="project-features">
+            <div class="feature">Microservices Architecture</div>
+            <div class="feature">Payment Gateway Integration</div>
+            <div class="feature">Real-time Inventory</div>
+            <div class="feature">Order Tracking</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag font-body">Django</span>
+            <span class="project-tag font-body">Docker</span>
+            <span class="project-tag font-body">PostgreSQL</span>
+            <span class="project-tag font-body">Redis</span>
+          </div>
+        </div>
+
+        <!-- Smart Expense Tracker -->
+        <div class="project-card glass-card hud-border project-destructive">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <div class="project-links">
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6 0-1.2-.5-2.3-1.3-3.2.1-.3.5-1.1-.1-2.3 0 0-1-.3-3 1.2-1-.4-2.1-.5-3.2-.5-1.1 0-2.2.1-3.2.5-2-1.5-3-1.2-3-1.2-.6 1.2-.2 2-.1 2.3-.8.9-1.3 2-1.3 3.2 0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21">
+                  </path>
+                </svg>
+              </button>
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="project-title font-display">Smart Expense Tracker with AI</h3>
+          <p class="project-description font-body">Intelligent expense management app with receipt scanning, automatic
+            categorization, and predictive budget insights using machine learning.</p>
+          <div class="project-features">
+            <div class="feature">Receipt OCR Scanning</div>
+            <div class="feature">Auto Categorization</div>
+            <div class="feature">Budget Predictions</div>
+            <div class="feature">Analytics Dashboard</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag font-body">React</span>
+            <span class="project-tag font-body">Node.js</span>
+            <span class="project-tag font-body">MongoDB</span>
+            <span class="project-tag font-body">OpenAI API</span>
+          </div>
+        </div>
+
+        <!-- Taxi Tirupati -->
+        <div class="project-card glass-card hud-border project-primary">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20"></path>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+            </div>
+            <div class="project-links">
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6 0-1.2-.5-2.3-1.3-3.2.1-.3.5-1.1-.1-2.3 0 0-1-.3-3 1.2-1-.4-2.1-.5-3.2-.5-1.1 0-2.2.1-3.2.5-2-1.5-3-1.2-3-1.2-.6 1.2-.2 2-.1 2.3-.8.9-1.3 2-1.3 3.2 0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21">
+                  </path>
+                </svg>
+              </button>
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="project-title font-display">Taxi Tirupati</h3>
+          <p class="project-description font-body">A comprehensive 23-page responsive website for taxi booking services
+            with SEO optimization achieving 93+ Lighthouse score.</p>
+          <div class="project-features">
+            <div class="feature">23 Responsive Pages</div>
+            <div class="feature">SEO Optimized</div>
+            <div class="feature">93+ Lighthouse Score</div>
+            <div class="feature">Mobile First Design</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag font-body">React</span>
+            <span class="project-tag font-body">TypeScript</span>
+            <span class="project-tag font-body">Tailwind CSS</span>
+            <span class="project-tag font-body">SEO</span>
+          </div>
+        </div>
+
+        <!-- Cloud Brokerage -->
+        <div class="project-card glass-card hud-border project-accent">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M3 5v14a9 3 0 0 0 18 0V5"></path>
+              </svg>
+            </div>
+            <div class="project-links">
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6 0-1.2-.5-2.3-1.3-3.2.1-.3.5-1.1-.1-2.3 0 0-1-.3-3 1.2-1-.4-2.1-.5-3.2-.5-1.1 0-2.2.1-3.2.5-2-1.5-3-1.2-3-1.2-.6 1.2-.2 2-.1 2.3-.8.9-1.3 2-1.3 3.2 0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21">
+                  </path>
+                </svg>
+              </button>
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="project-title font-display">Cloud Brokerage Architecture</h3>
+          <p class="project-description font-body">Custom BCloud-Tree data structure implementation enabling 40% faster
+            cloud provider comparison and selection.</p>
+          <div class="project-features">
+            <div class="feature">Custom Data Structure</div>
+            <div class="feature">40% Faster Comparison</div>
+            <div class="feature">Cloud Provider Matching</div>
+            <div class="feature">Scalable Architecture</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag font-body">Python</span>
+            <span class="project-tag font-body">Algorithms</span>
+            <span class="project-tag font-body">Cloud Computing</span>
+            <span class="project-tag font-body">Data Structures</span>
+          </div>
+        </div>
+
+        <!-- Cybersecurity Dashboard -->
+        <div class="project-card glass-card hud-border project-destructive">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="project-links">
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6 0-1.2-.5-2.3-1.3-3.2.1-.3.5-1.1-.1-2.3 0 0-1-.3-3 1.2-1-.4-2.1-.5-3.2-.5-1.1 0-2.2.1-3.2.5-2-1.5-3-1.2-3-1.2-.6 1.2-.2 2-.1 2.3-.8.9-1.3 2-1.3 3.2 0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21">
+                  </path>
+                </svg>
+              </button>
+              <button class="project-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="project-title font-display">Cybersecurity Dashboard</h3>
+          <p class="project-description font-body">Real-time security monitoring dashboard with threat detection,
+            vulnerability scanning, and automated incident response.</p>
+          <div class="project-features">
+            <div class="feature">Real-time Monitoring</div>
+            <div class="feature">Threat Detection</div>
+            <div class="feature">Vulnerability Scanning</div>
+            <div class="feature">Incident Response</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag font-body">Python</span>
+            <span class="project-tag font-body">React</span>
+            <span class="project-tag font-body">WebSocket</span>
+            <span class="project-tag font-body">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="education-section">
+    <div class="section-container">
+      <div class="section-title">
+        <div class="title-header">
+          <div class="title-line"></div>
+          <span class="title-label font-body">Education</span>
+          <div class="title-line"></div>
+        </div>
+        <h2 class="title-main font-display">Academic Profile</h2>
+      </div>
+
+      <div class="education-content">
+        <!-- Degree Card -->
+        <div class="degree-card glass-card">
+          <div class="degree-top-bar"></div>
+          <div class="degree-wrapper">
+            <div class="degree-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 10v6m0 0l-8.97 4.97a1.694 1.694 0 01-2.06 0L2 16m20-6l-8.97-4.97a1.694 1.694 0 00-2.06 0L2 10m20 0V8a2 2 0 00-2-2H4a2 2 0 00-2 2v2">
+                </path>
+              </svg>
+            </div>
+            <div class="degree-info">
+              <h3 class="degree-title font-display">B.Tech in Computer Science & Engineering</h3>
+              <p class="degree-institution font-body">University</p>
+            </div>
+            <div class="degree-year">
+              <span class="font-display">2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="certifications">
+          <h3 class="certs-title font-display">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9c0-1 1-2 2-2s2 1 2 2"></path>
+              <path d="M9 9v12"></path>
+              <path d="M15 9c0-1 1-2 2-2s2 1 2 2"></path>
+              <path d="M18 9v12"></path>
+              <path d="M21 21H3a2 2 0 01-2-2V8a2 2 0 012-2h18a2 2 0 012 2v11a2 2 0 01-2 2z"></path>
+            </svg>
+            Certifications
+          </h3>
+
+          <div class="certs-grid">
+            <div class="cert-card glass-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 1l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 1z" />
+                </svg>
+              </div>
+              <h4 class="cert-name font-body">Generative AI & ChatGPT</h4>
+              <p class="cert-issuer font-body">Professional Certification</p>
+            </div>
+
+            <div class="cert-card glass-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h4 class="cert-name font-body">Meta Front-End Development</h4>
+              <p class="cert-issuer font-body">Meta</p>
+            </div>
+
+            <div class="cert-card glass-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                  </path>
+                  <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                  <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                  <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h4 class="cert-name font-body">Java Full Stack Development</h4>
+              <p class="cert-issuer font-body">Professional Certification</p>
+            </div>
+
+            <div class="cert-card glass-card">
+              <div class="cert-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h4 class="cert-name font-body">Salesforce Developer Internship</h4>
+              <p class="cert-issuer font-body">Salesforce</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="section-container">
+      <div class="section-title">
+        <div class="title-header">
+          <div class="title-line"></div>
+          <span class="title-label font-body">Contact</span>
+          <div class="title-line"></div>
+        </div>
+        <h2 class="title-main font-display">Get In Touch</h2>
+      </div>
+
+      <div class="contact-wrapper">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div class="contact-card glass-card hud-border">
+            <h3 class="contact-card-title font-display">Let's Connect</h3>
+            <p class="contact-card-text font-body">
+              I'm always open to discussing new projects, creative ideas, or opportunities
+              to be part of your vision. Feel free to reach out!
+            </p>
+
+            <!-- Email -->
+            <a href="mailto:balajijr007@gmail.com" class="contact-link">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <p class="contact-label font-body">Email</p>
+                <p class="contact-value font-body">balajijr007@gmail.com</p>
+              </div>
+            </a>
+
+            <!-- Location -->
+            <div class="contact-link">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <p class="contact-label font-body">Location</p>
+                <p class="contact-value font-body">India</p>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="contact-socials">
+              <a href="https://linkedin.com/in/balajibathini" target="_blank" rel="noopener noreferrer"
+                class="social-link" title="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </a>
+              <a href="https://github.com/balajibathini" target="_blank" rel="noopener noreferrer" class="social-link"
+                title="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="Portfolio">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M2 12h20"></path>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <div class="contact-card glass-card">
+            <div class="contact-form-header">
+              <div class="contact-form-dot"></div>
+              <span class="font-body">Send Message</span>
+            </div>
+
+            <form id="contactForm" class="contact-form font-body" action="https://formsubmit.co/balajijr007@gmail.com"
+              method="POST">
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_subject" value="New Contact Request from Portfolio">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+
+              <div class="form-group">
+                <label for="formName" class="form-label font-body">Name</label>
+                <input type="text" id="formName" name="name" class="form-input" placeholder="Your name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="formEmail" class="form-label font-body">Email</label>
+                <input type="email" id="formEmail" name="email" class="form-input" placeholder="your@email.com"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label for="formMessage" class="form-label font-body">Message</label>
+                <textarea id="formMessage" name="message" class="form-textarea" placeholder="Your message..." rows="5"
+                  required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-hero" style="width: 100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="#" class="footer-logo font-display">{"Balaji Bathini"}
+
+      </a>
+      <p class="footer-copyright font-body">
+        © <span id="year">2024</span> Balaji Bathini. Crafted with
+        <svg class="heart-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+        and code.
+      </p>
+      <div class="footer-status">
+        <div class="status-dot"></div>
+        <span class="font-body">Systems Operational</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+
+</html>
