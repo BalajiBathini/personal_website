@@ -43,13 +43,16 @@ class LoadingScreen {
 class ParticleBackground {
   constructor() {
     this.canvas = document.getElementById('particleCanvas');
+    if (!this.canvas) return;
     this.ctx = this.canvas.getContext('2d');
     this.particles = [];
-    this.particleCount = 80;
-    this.connectionDistance = 150;
-    this.mouseRadius = 100;
-    this.mouseX = 0;
-    this.mouseY = 0;
+    this.isMobile = window.innerWidth < 768;
+    this.particleCount = this.isMobile ? 25 : 40;
+    this.connectionDistance = this.isMobile ? 80 : 110;
+    this.connectionDistanceSq = this.connectionDistance * this.connectionDistance;
+    this.mouseRadius = 90;
+    this.mouseX = -1000;
+    this.mouseY = -1000;
 
     this.init();
   }
@@ -64,6 +67,10 @@ class ParticleBackground {
   resizeCanvas() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
+    this.isMobile = window.innerWidth < 768;
+    this.particleCount = this.isMobile ? 25 : 40;
+    this.connectionDistance = this.isMobile ? 80 : 110;
+    this.connectionDistanceSq = this.connectionDistance * this.connectionDistance;
   }
 
   createParticles() {
@@ -72,43 +79,62 @@ class ParticleBackground {
       this.particles.push({
         x: Math.random() * this.canvas.width,
         y: Math.random() * this.canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 1.5 + 1,
+        opacity: Math.random() * 0.4 + 0.2,
       });
     }
   }
 
   setupEventListeners() {
-    window.addEventListener('resize', () => this.resizeCanvas());
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        this.resizeCanvas();
+        this.createParticles();
+      }, 250);
+    }, { passive: true });
+
     window.addEventListener('mousemove', (e) => {
       this.mouseX = e.clientX;
       this.mouseY = e.clientY;
-    });
+    }, { passive: true });
   }
 
   animate = () => {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    if (document.hidden) {
+      requestAnimationFrame(this.animate);
+      return;
+    }
 
-    this.particles.forEach((particle, i) => {
-      // Update position
+    const width = this.canvas.width;
+    const height = this.canvas.height;
+    this.ctx.clearRect(0, 0, width, height);
+
+    const len = this.particles.length;
+    for (let i = 0; i < len; i++) {
+      const particle = this.particles[i];
+
       particle.x += particle.vx;
       particle.y += particle.vy;
 
-      // Bounce off edges
-      if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
-      if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
+      if (particle.x < 0 || particle.x > width) particle.vx *= -1;
+      if (particle.y < 0 || particle.y > height) particle.vy *= -1;
 
       // Mouse interaction
-      const dx = this.mouseX - particle.x;
-      const dy = this.mouseY - particle.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (this.mouseX > 0) {
+        const dx = this.mouseX - particle.x;
+        const dy = this.mouseY - particle.y;
+        const distSq = dx * dx + dy * dy;
 
-      if (distance < this.mouseRadius) {
-        const force = (this.mouseRadius - distance) / this.mouseRadius;
-        particle.vx -= (dx / distance) * force * 0.02;
-        particle.vy -= (dy / distance) * force * 0.02;
+        if (distSq < this.mouseRadius * this.mouseRadius) {
+          const distance = Math.sqrt(distSq);
+          const force = (this.mouseRadius - distance) / this.mouseRadius;
+          particle.vx -= (dx / distance) * force * 0.015;
+          particle.vy -= (dy / distance) * force * 0.015;
+        }
       }
 
       // Draw particle
@@ -117,15 +143,16 @@ class ParticleBackground {
       this.ctx.fillStyle = `hsla(195, 100%, 50%, ${particle.opacity})`;
       this.ctx.fill();
 
-      // Draw connections
-      for (let j = i + 1; j < this.particles.length; j++) {
+      // Connections using squared distance check first
+      for (let j = i + 1; j < len; j++) {
         const other = this.particles[j];
         const connDx = particle.x - other.x;
         const connDy = particle.y - other.y;
-        const connDistance = Math.sqrt(connDx * connDx + connDy * connDy);
+        const connDistSq = connDx * connDx + connDy * connDy;
 
-        if (connDistance < this.connectionDistance) {
-          const opacity = (1 - connDistance / this.connectionDistance) * 0.3;
+        if (connDistSq < this.connectionDistanceSq) {
+          const connDistance = Math.sqrt(connDistSq);
+          const opacity = (1 - connDistance / this.connectionDistance) * 0.25;
           this.ctx.beginPath();
           this.ctx.moveTo(particle.x, particle.y);
           this.ctx.lineTo(other.x, other.y);
@@ -134,7 +161,7 @@ class ParticleBackground {
           this.ctx.stroke();
         }
       }
-    });
+    }
 
     requestAnimationFrame(this.animate);
   };
@@ -186,11 +213,11 @@ class Navigation {
 class RoleAnimation {
   constructor() {
     this.roles = [
-      'Software Developer',
-      'Python Engineer',
-      'Odoo Specialist',
-      'Full-Stack Developer',
-      'AI Enthusiast',
+      'Industrial AI Engineer',
+      'Python Developer',
+      'Computer Vision Enthusiast',
+      'Software Engineer',
+      'Robotics & Automation Enthusiast',
     ];
     this.currentRoleIndex = 0;
     this.displayText = '';
@@ -200,7 +227,9 @@ class RoleAnimation {
   }
 
   init() {
-    this.animate();
+    if (this.roleText) {
+      this.animate();
+    }
   }
 
   animate = () => {
@@ -243,7 +272,6 @@ class SkillMeter {
     this.percentage = percentage;
     this.circle = element.querySelector('.progress-circle');
     this.percentageDisplay = element.querySelector('.skill-percentage');
-    this.animatedPercentage = 0;
     this.init();
   }
 
@@ -261,20 +289,19 @@ class SkillMeter {
   }
 
   animate() {
+    const num = parseInt(this.percentage, 10);
+    if (isNaN(num)) return;
+
     const duration = 1500;
     const steps = 60;
-    const stepValue = this.percentage / steps;
+    const stepValue = num / steps;
     let current = 0;
 
     const interval = setInterval(() => {
       current += stepValue;
-      if (current >= this.percentage) {
-        this.animatedPercentage = this.percentage;
+      if (current >= num) {
         clearInterval(interval);
-      } else {
-        this.animatedPercentage = Math.round(current);
       }
-      this.percentageDisplay.textContent = this.animatedPercentage + '%';
     }, duration / steps);
   }
 }
@@ -283,8 +310,12 @@ class SkillMeter {
 // Scroll To Section
 // ===========================
 
-function scrollToSection(selector) {
-  event.preventDefault();
+function scrollToSection(selector, evt) {
+  if (evt && typeof evt.preventDefault === 'function') {
+    evt.preventDefault();
+  } else if (typeof event !== 'undefined' && event && typeof event.preventDefault === 'function') {
+    event.preventDefault();
+  }
   const element = document.querySelector(selector);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
@@ -297,7 +328,10 @@ function scrollToSection(selector) {
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set current year
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
   // Initialize loading screen
   new LoadingScreen();
@@ -313,7 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize skill meters
   document.querySelectorAll('.skill-meter').forEach((meter) => {
-    const percentage = parseInt(meter.querySelector('.skill-percentage').textContent);
+    const pEl = meter.querySelector('.skill-percentage');
+    const percentage = pEl ? pEl.textContent : '0';
     new SkillMeter(meter, percentage);
   });
 
